@@ -165,16 +165,33 @@ if uploaded_file:
         # Clean user name (remove spaces)
         user_clean = user_name.replace(" ", "")
         
+        #########################################################################
         # Extract date range
-        start_date = pd.to_datetime(df['Start Date'].min()).strftime('%d%b')
-        end_date = pd.to_datetime(df['Start Date'].max()).strftime('%d%b')
-        year = pd.to_datetime(df['Start Date'].max()).year
+        # start_date = pd.to_datetime(df['Start Date'].min()).strftime('%d%b')
+        # end_date = pd.to_datetime(df['Start Date'].max()).strftime('%d%b')
+        # year = pd.to_datetime(df['Start Date'].max()).year
         
-        # Construct final output filename
-        filename = f"Timesheet-{user_clean}-{start_date}-{end_date}-{year}.xlsx"
+        # # Construct final output filename
+        # filename = f"Timesheet-{user_clean}-{start_date}-{end_date}-{year}.xlsx"
+        # wb.save(final_output)
+        
+        # print(f"✅ Timesheet saved as: {filename}")
+        #########################################################################       
+        # Extract and format start and end dates
+        start_dt = pd.to_datetime(df['Start Date'].min())
+        end_dt = pd.to_datetime(df['Start Date'].max())
+        
+        start_str = start_dt.strftime("%d_%m_%Y")
+        end_str = end_dt.strftime("%d_%m_%Y")
+        
+        # Construct the final filename
+        filename = f"Timesheet-{user_clean}-{start_str}-{end_str}.xlsx"
         wb.save(final_output)
         
         print(f"✅ Timesheet saved as: {filename}")
+
+        #########################################################################
+        
         final_output.seek(0)
 
     st.success("✅ File processed successfully!")
