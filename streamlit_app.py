@@ -162,9 +162,19 @@ if uploaded_file:
 
         # Save to in-memory buffer
         final_output = BytesIO()
+        # Clean user name (remove spaces)
         user_clean = user_name.replace(" ", "")
-        filename = f"Timesheet-{user_clean}.xlsx"
-        wb.save(final_output)
+        
+        # Extract date range
+        start_date = pd.to_datetime(df['Start Date'].min()).strftime('%d%b')
+        end_date = pd.to_datetime(df['Start Date'].max()).strftime('%d%b')
+        year = pd.to_datetime(df['Start Date'].max()).year
+        
+        # Construct final output filename
+        output_file = f"Timesheet-{user_clean}-{start_date}-{end_date}-{year}.xlsx"
+        wb.save(output_file)
+        
+        print(f"✅ Timesheet saved as: {output_file}")
         final_output.seek(0)
 
     st.success("✅ File processed successfully!")
