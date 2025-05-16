@@ -104,7 +104,7 @@ if uploaded_file:
 
 
         for r in range(1, last_row + 1):
-            for c in range(first_col, last_col + 5):
+            for c in range(first_col, last_col + 1):
                 cell = ws.cell(r, c)
                 cell.border = Border(left=Side(style='thick'), right=Side(style='thick'), top=cell.border.top, bottom=cell.border.bottom)
                 if c < 6:
@@ -223,5 +223,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
-
