@@ -171,10 +171,10 @@ if uploaded_file:
         year = pd.to_datetime(df['Start Date'].max()).year
         
         # Construct final output filename
-        output_file = f"Timesheet-{user_clean}-{start_date}-{end_date}-{year}.xlsx"
-        wb.save(output_file)
+        filename = f"Timesheet-{user_clean}-{start_date}-{end_date}-{year}.xlsx"
+        wb.save(final_output)
         
-        print(f"✅ Timesheet saved as: {output_file}")
+        print(f"✅ Timesheet saved as: {filename}")
         final_output.seek(0)
 
     st.success("✅ File processed successfully!")
