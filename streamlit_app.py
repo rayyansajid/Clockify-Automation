@@ -6,7 +6,7 @@ from openpyxl.utils import get_column_letter
 from datetime import datetime, timedelta
 from io import BytesIO
 
-st.set_page_config(page_title="Clockify Timesheet Formatter", layout="wide")
+st.set_page_config(page_title="Clockify Timesheet Formatter - ei1", layout="wide")
 st.title("🕒 Clockify Timesheet Formatter")
 
 uploaded_file = st.file_uploader("Upload your Clockify Excel file", type=["xlsx"])
@@ -202,3 +202,16 @@ if uploaded_file:
         file_name=filename,
         mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
     )
+
+# Add spacing
+st.markdown("---")
+st.markdown(
+    """
+    <div style="text-align: center; font-size: 16px; padding-top: 20px;">
+        Precision. Simplicity & Intellectuality Powered by <b>Team C</b>:<br> <i>Rayyan Sajid</i> & <i>Hamza Ahmed</i>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
