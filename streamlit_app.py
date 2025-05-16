@@ -85,9 +85,11 @@ if uploaded_file:
             ws.insert_rows(row)
             ws.cell(row, 3).value = "Total"
             ws.cell(row, 3).fill = light_blue
+            ws.cell(row, 3).font = bold_font
             ws.cell(row, 4).fill = light_blue
             ws.cell(row, 5).value = str(total_duration)
             ws.cell(row, 5).fill = light_blue
+            ws.cell(row, 5).font = bold_font
             row += 1
 
         first_col = 1
@@ -95,10 +97,18 @@ if uploaded_file:
         last_row = ws.max_row
 
         for r in range(1, last_row + 1):
-            for c in range(first_col, last_col + 1):
+            cell1 = ws.cell(r, 1)
+            cell2 = ws.cell(r, 2)
+            cell1.font = bold_font
+            cell2.font = bold_font
+
+
+        for r in range(1, last_row + 1):
+            for c in range(first_col, last_col + 5):
                 cell = ws.cell(r, c)
                 cell.border = Border(left=Side(style='thick'), right=Side(style='thick'), top=cell.border.top, bottom=cell.border.bottom)
-                cell.alignment = center_align
+                if c < 6:
+                    cell.alignment = center_align
 
         date_to_last_row = {}
         for r in range(2, last_row + 1):
