@@ -38,7 +38,7 @@ with col1:
 
 # st.title("🕒 Clockify Timesheet Formatter")
 
-uploaded_file = st.file_uploader("Upload your Clockify Excel file", type=["xlsx"])
+uploaded_file = st.file_uploader("Upload your Clockify Excel file in 24-hr Format", type=["xlsx"])
 
 if uploaded_file:
     with st.spinner("Processing file..."):
