@@ -7,11 +7,13 @@ from datetime import datetime, timedelta
 from io import BytesIO
 import base64
 from PIL import Image
+from pathlib import Path
 
 st.set_page_config(page_title="Clockify Timesheet Formatter - ei1", layout="wide")
 
 # Load your logo image
-logo = Image.open(r"./ei1-logo.png")  # Replace with your logo's file path or BytesIO if dynamic
+logo_path = Path(__file__).parent / "ei1-logo.png"
+logo = Image.open(logo_path)
 # Convert to base64
 buffered = BytesIO()
 logo.save(buffered, format="PNG")
