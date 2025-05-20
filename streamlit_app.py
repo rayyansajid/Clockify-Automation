@@ -11,7 +11,7 @@ from PIL import Image
 st.set_page_config(page_title="Clockify Timesheet Formatter - ei1", layout="wide")
 
 # Load your logo image
-logo = Image.open(r".\ei1-logo.png")  # Replace with your logo's file path or BytesIO if dynamic
+logo = Image.open(r"./ei1-logo.png")  # Replace with your logo's file path or BytesIO if dynamic
 # Convert to base64
 buffered = BytesIO()
 logo.save(buffered, format="PNG")
