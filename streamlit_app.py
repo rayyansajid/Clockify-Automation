@@ -25,6 +25,7 @@ with col2:
         f"""
         <div style="background-color: black; border-radius: 5px; text-align: center;">
             <img src="data:image/png;base64,{logo_base64}" width="300" />
+            <p>Hello</p>
         </div>
         """,
         unsafe_allow_html=True
