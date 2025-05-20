@@ -5,9 +5,36 @@ from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
 from datetime import datetime, timedelta
 from io import BytesIO
+import base64
+from PIL import Image
 
 st.set_page_config(page_title="Clockify Timesheet Formatter - ei1", layout="wide")
-st.title("🕒 Clockify Timesheet Formatter")
+
+# Load your logo image
+logo = Image.open(r".\ei1-logo.png")  # Replace with your logo's file path or BytesIO if dynamic
+# Convert to base64
+buffered = BytesIO()
+logo.save(buffered, format="PNG")
+logo_base64 = base64.b64encode(buffered.getvalue()).decode()
+
+# Create two columns
+col1, col2 = st.columns([8, 2])  # Adjust width ratio as needed
+
+with col2:
+    st.markdown(
+        f"""
+        <div style="background-color: black; border-radius: 5px; text-align: center;">
+            <img src="data:image/png;base64,{logo_base64}" width="300" />
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+ # Adjust width to fit well with title
+
+with col1:
+    st.title("🕒 Clockify Timesheet Formatter")
+
+# st.title("🕒 Clockify Timesheet Formatter")
 
 uploaded_file = st.file_uploader("Upload your Clockify Excel file", type=["xlsx"])
 
