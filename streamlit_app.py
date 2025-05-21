@@ -247,7 +247,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center; font-size: 16px; padding-top: 20px;">
-        <b>Precision. Simplicity & Intellectuality</b>.<br> Powered by <b>Team C</b><br> ft. <i>Rayyan Sajid</i> & <i>Hamza Ahmed</i>
+        <b>Precision. Simplicity & Intellectuality</b>.<br> Powered by Team C<br> <b><i>Rayyan Sajid</i></b><b> & <i>Hamza Ahmed</i></b>
     </div>
     """,
     unsafe_allow_html=True
